@@ -47,7 +47,6 @@
       "communicator": "winrm",
       "winrm_username": "vagrant",
       "winrm_password": "vagrant",
-      "winrm_port": 55985,
       "winrm_timeout": "12h",
       "shutdown_command": "a:/PackerShutdown.bat",
       "shutdown_timeout": "15m",
@@ -75,16 +74,12 @@
       "output": "windows2012r2min-{{.Provider}}.box",
       "vagrantfile_template": "vagrantfile-windows.template"
     },
-    {
-      "type": "atlas",
-      "only": ["virtualbox-iso-atlas"],
-      "artifact": "mwrock/Windows2012R2{{user `core`}}",
-      "artifact_type": "vagrant.box",
-      "metadata": {
-        "provider": "virtualbox",
-        "version": "0.5.2"
-      }
-    }]
+    {  
+      "type": "vagrant-cloud",
+      "box_tag": "jptoto/Windows2012R2",
+      "version": "1.0.3"
+    }
+    ]
   ],
   "variables": {
     "core": "",
